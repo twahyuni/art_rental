@@ -1,0 +1,9 @@
+{
+  "name": "art-rental",
+  "version": "0.0.1",
+  "main": "",
+  "private": true,
+  "dependencies": {
+    "j-toker": "^0.0.9"
+  }
+}
