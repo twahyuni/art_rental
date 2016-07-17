@@ -6,6 +6,7 @@ class Rentee < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :reservations
+  has_many :galleries
 
   has_attached_file :avatar, styles: {
     medium: "300x300>",
