@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $('#signup-form').on('submit', function(e){
+  $('#rentee-signup-form').on('submit', function(e){
     e.preventDefault();
 
 
     $.auth.emailSignUp({
-      email: $('#signup-form input[name="email"]').val(),
-      password: $('#signup-form input[name="password"]').val(),
-      password_confirmation: $('#signup-form input[name="password_confirmation"]').val(),
+      email: $('#rentee-signup-form input[name="email"]').val(),
+      password: $('#rentee-signup-form input[name="password"]').val(),
+      password_confirmation: $('#rentee-signup-form input[name="password_confirmation"]').val(),
       config: 'rentee'
     }).then(function(resp){
       console.log(resp);
@@ -14,4 +14,20 @@ $(document).ready(function() {
       console.log(resp);
     });
   });
+
+  $('#artist-signup-form').on('submit', function(e){
+    e.preventDefault();
+
+
+    $.auth.emailSignUp({
+      email: $('#artist-signup-form input[name="email"]').val(),
+      password: $('#artist-signup-form input[name="password"]').val(),
+      password_confirmation: $('#artist-signup-form input[name="password_confirmation"]').val(),
+    }).then(function(resp){
+      console.log(resp);
+    }).fail(function(resp){
+      console.log(resp);
+    });
+  });
+
 });

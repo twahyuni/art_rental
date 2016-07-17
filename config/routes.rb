@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   root 'statics#home'
 
   devise_scope :rentee do
-    get '/signup' => 'rentee_auth#signup'
+    get '/rentee/signup' => 'rentee_auth#signup'
   end
+  get '/artist/signup' => 'auth#signup'
 
   get '/login' => 'auth#login'
 
