@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717060548) do
+ActiveRecord::Schema.define(version: 20160717070136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,12 @@ ActiveRecord::Schema.define(version: 20160717060548) do
     t.date     "available_date"
     t.string   "location"
     t.integer  "artist_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "artwork_image_file_name"
+    t.string   "artwork_image_content_type"
+    t.integer  "artwork_image_file_size"
+    t.datetime "artwork_image_updated_at"
   end
 
   create_table "bubbles", force: :cascade do |t|
@@ -76,13 +80,13 @@ ActiveRecord::Schema.define(version: 20160717060548) do
   end
 
   create_table "rentees", force: :cascade do |t|
-    t.string   "provider",                                  default: "email", null: false
-    t.string   "uid",                                       default: "",      null: false
-    t.string   "encrypted_password",                        default: "",      null: false
+    t.string   "provider",               default: "email", null: false
+    t.string   "uid",                    default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                             default: 0,       null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -103,10 +107,6 @@ ActiveRecord::Schema.define(version: 20160717060548) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "exhibition_location_pictures_file_name"
-    t.string   "exhibition_location_pictures_content_type"
-    t.integer  "exhibition_location_pictures_file_size"
-    t.datetime "exhibition_location_pictures_updated_at"
   end
 
   add_index "rentees", ["email"], name: "index_rentees_on_email", using: :btree
