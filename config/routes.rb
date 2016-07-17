@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get '/login' => 'auth#login'
 
   get '/secret' => 'statics#secret'
+
+  get '/rentee_profile', to: 'statics#rentee_profile'
+
+  get '/artist_profile', to: 'statics#artist_profile'
 end

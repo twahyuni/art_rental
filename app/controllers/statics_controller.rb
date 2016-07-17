@@ -5,4 +5,11 @@ class StaticsController < ApplicationController
 
   def secret
   end
+
+  def artist_profile
+  end
+
+  def rentee_profile
+  end
+
 end

@@ -30,4 +30,19 @@ $(document).ready(function() {
     });
   });
 
+  $('#signup_button').hide();
+
+  $('#show_signup_modal').click(function(){
+    console.log("show signup ")
+    $('#loginModal').modal('hide');
+    $('#signupModal').modal('show');
+  })
+
+  $('#show_login_modal').click(function(){
+    console.log("show login")
+
+    $('#signupModal').modal('hide');
+    $('#loginModal').modal('show');
+  })
+
 });
