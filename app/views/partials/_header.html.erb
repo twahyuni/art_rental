@@ -10,91 +10,173 @@
       </button>
       <a class="navbar-brand" href="/">Art Rental</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">search <span class="sr-only">(current)</span></a></li>
-
-
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/artist_profile">Artist</a></li>
         <li><a href="/rentee_profile">Rentee</a></li>
          <li><a href="#">Inbox</a></li>
         <li>
-     <!--   login -->
+<li>
+     <!--    logintype-->
           <!-- Trigger the modal with a button -->
-<button id="login_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">login</button>
-
+  <button id="logintype_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#logintypeModal">login</button>
+  <div id="logintypeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Login as</h4>
+          </div>
+        <div class="modal-body">
+          <button  id= "login-artist" class="btn btn-danger"> login as Artist</button>
+          <button id="login-rentee" class="btn btn-primary"> Login as Rentee</button>
+        </div>
+        <div class="modal-footer">
+          <p> dont have a count?</p>
+          <button  type="login" class="show_signup_type_modal"> signup</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+<li>
+     <!--   login for artist -->
+          <!-- Trigger the modal with a button -->
+  <button id="login_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#login-artistModal">login</button>
 <!-- Modal -->
-<div id="loginModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
+  <div id="login-artistModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">login</h4>
+        <h4 class="modal-title">Artist login</h4>
       </div>
       <div class="modal-body">
-       <form id="login-form">
-    <input type="email" name="email">
-    <input type="password" name="password">
-
-    <button type="submit"> login</button>
-
-  </form>
+        <form id="artist-login-form">
+          <input type="email" name="email">
+          <input type="password" name="password">
+         <button type="submit"> login</button>
+        </form>
       </div>
       <div class="modal-footer">
-      <p> dont have an account?</p>
-    <button id="show_signup_modal" type="login" > signup</button>
+        <p> dont have an account?</p>
+        <button class="show_signup_type_modal" type="login" > signup</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
+   </div>
+  </div>
+</li>
+<li>
+     <!--   login for rentee -->
+          <!-- Trigger the modal with a button -->
+<!-- Modal -->
+  <div id="login-renteeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> Rentee login</h4>
+        </div>
+        <div class="modal-body">
+          <form id="rentee-login-form">
+            <input type="email" name="email">
+            <input type="password" name="password">
+            <button type="submit"> login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p> dont have an account?</p>
+          <button class="show_signup_type_modal" type="login" > signup</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+<li>
+     <!--    signuppppp FOR ARTIST & RENTEE -->
+          <!-- Trigger the modal with a button -->
+  <button id="signup_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#signupModal">signup</button>
+<!-- show signup typeeeeeeeee -->
+  <div id="show-signuptypeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Join as</h4>
+        </div>
+      <div class="modal-body">
+        <button id= "signup-artist" class="btn btn-danger"> I'm a artist</button>
+        <button id= "signup-rentee" class="btn btn-primary"> I'm a rentee</button>
+      </div>
+      <div class="modal-footer">
+        <p> already have a acount?</p>
+        <button  type="login" id="show_login_modal"> login</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
-
-        </li>
-        <li>
-     <!--    signuppppp -->
-          <!-- Trigger the modal with a button -->
-<button id="signup_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#signupModal">signup</button>
-
-<!-- Modal -->
-<div id="signupModal" class="modal fade" role="dialog">
+<!-- Modal sign up for artisttttttttt -->
+<div id="signup-artistModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">signup</h4>
+        <h4 class="modal-title"> Rentee signup</h4>
       </div>
       <div class="modal-body">
-       <form id="signup-form">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <input type="password" name="password_confirmation">
-    <button type="submit"> join</button>
-
-  </form>
+        <form id="artist-signup-form">
+          <input type="email" name="email">
+          <input type="password" name="password">
+          <input type="password" name="password_confirmation">
+          <button type="submit"> join</button>
+         </form>
       </div>
       <div class="modal-footer">
-      <p> already have a acount?</p>
-    <button  type="login" id="show_login_modal"> login</button>
+        <p> already have a acount?</p>
+        <button  type="login" class="show_login_type"> login</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
-
-        </li>
-
-
+<!-- Modal signup for renteee -->
+<div id="signup-renteeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> Artist signup</h4>
+      </div>
+      <div class="modal-body">
+       <form id="rentee-signup-form">
+          <input type="email" name="email">
+          <input type="password" name="password">
+          <input type="password" name="password_confirmation">
+          <button type="submit"> join</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p> already have a acount?</p>
+        <button  type="login" class="show_login_type"> login</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

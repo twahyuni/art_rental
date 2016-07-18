@@ -15,10 +15,14 @@ Rails.application.routes.draw do
   get '/artist/login' => 'auth#login'
   get '/rentee/login' => 'rentee_auth#login'
 
-
-  get '/secret' => 'statics#secret'
-
   get '/rentee_profile', to: 'statics#rentee_profile'
-
   get '/artist_profile', to: 'statics#artist_profile'
+
+  namespace :api do
+    resources :artists
+    resources :rentees
+    resources :artworks
+    resources :bubbles
+    resources :galleries
+  end
 end

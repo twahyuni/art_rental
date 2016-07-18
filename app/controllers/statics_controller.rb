@@ -1,9 +1,8 @@
 class StaticsController < ApplicationController
-  before_action :authenticate_artist!, only: [:secret]
-  def home
-  end
+  before_action :authenticate_artist!, only: [:artist_profile]
+  before_action :authenticate_rentee!, only: [:rentee_profile]
 
-  def secret
+  def home
   end
 
   def artist_profile
