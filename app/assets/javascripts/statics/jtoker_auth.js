@@ -2,6 +2,7 @@ $(document).ready(function() {
   $('#signup_button').hide();
   $('#login_button').hide();
 
+  // RENTEE AUTH SIGNUP
   $('#rentee-signup-form').on('submit', function(e){
     e.preventDefault();
 
@@ -17,6 +18,7 @@ $(document).ready(function() {
     });
   });
 
+  // ARTIST AUTH SIGNUP
   $('#artist-signup-form').on('submit', function(e){
     e.preventDefault();
 
@@ -31,6 +33,7 @@ $(document).ready(function() {
     });
   });
 
+  // ARTIST AUTH LOGIN
   $('#artist-login-form').on('submit', function(e){
     e.preventDefault();
 
@@ -48,6 +51,7 @@ $(document).ready(function() {
     });
   });
 
+  // RENTEE AUTH LOGIN
   $('#rentee-login-form').on('submit', function(e){
     e.preventDefault();
 
@@ -66,6 +70,13 @@ $(document).ready(function() {
     });
   });
 
+  // AUTH LOGOUT
+  $('#logout-button').on('click', function(){
+    $.auth.signOut();
+    document.location.href="/";
+  });
+
+  // WITHIN MODALS
   $('#signup_button').hide();
 
   $('#show_signup_modal').click(function(){

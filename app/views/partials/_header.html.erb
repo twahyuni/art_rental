@@ -10,40 +10,42 @@
       </button>
       <a class="navbar-brand" href="/">Art Rental</a>
     </div>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">search <span class="sr-only">(current)</span></a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/artist_profile">Artist</a></li>
         <li><a href="/rentee_profile">Rentee</a></li>
-         <li><a href="#">Inbox</a></li>
+        <li><a href="#">Inbox</a></li>
         <li>
-<li>
-     <!--    logintype-->
+        <li>
+          <!-- logintype -->
           <!-- Trigger the modal with a button -->
-  <button id="logintype_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#logintypeModal">login</button>
-  <div id="logintypeModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content-->
-      <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Login as</h4>
+          <button id="logintype_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#logintypeModal">login</button>
+          <div id="logintypeModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+            <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Login as</h4>
+                  </div>
+                <div class="modal-body">
+                  <button  id= "login-artist" class="btn btn-danger"> login as Artist</button>
+                  <button id="login-rentee" class="btn btn-primary"> Login as Rentee</button>
+                </div>
+                <div class="modal-footer">
+                  <p> dont have a count?</p>
+                  <button  type="login" class="show_signup_type_modal"> signup</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
           </div>
-        <div class="modal-body">
-          <button  id= "login-artist" class="btn btn-danger"> login as Artist</button>
-          <button id="login-rentee" class="btn btn-primary"> Login as Rentee</button>
-        </div>
-        <div class="modal-footer">
-          <p> dont have a count?</p>
-          <button  type="login" class="show_signup_type_modal"> signup</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</li>
+        </li>
 <li>
      <!--   login for artist -->
           <!-- Trigger the modal with a button -->

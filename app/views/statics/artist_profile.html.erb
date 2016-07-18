@@ -1,43 +1,51 @@
-<div class="profile">
-<img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
+<!-- TEMPORARY PLACEHOLDER -->
 <button id="logout-button">Logout</button>
-
 <%= current_artist.email %>
+<br><br>
 
-<h3>Name</h3>
-<h3>location</h3>
-<h4>bio</h4>
-
-<li>Upload Art</li>
-<li> Settings</li>
-<li>Show artwork</li>
-
-<div>
-<div class="row"></div>
-<div class="col-xs-4">
-  <img src="http://placehold.it/350x300?text=1">
+<!-- TOP PROFILE -->
+<div class="row">
+  <!-- PICTURE  -->
+  <div class= "col-xs-3">
+    <img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
+  </div>
+  <!-- PROFILE INFORMATION -->
+  <div class= "col-xs-6">
+    <h1>Artist Name </h1>
+    <h3> Artist Location </h3>
+  </div>
+  <!-- CONTACT INFORMATION -->
+  <div class= "col-xs-3 pull-right">
+    <h3> Artist Contact </h3>
+  </div>
 </div>
-<div class="col-xs-8">
-  <h4>title</h4>
-  <h4>description</h4>
-  <h6>size</h6>
-  <h4>status</h4>
-  <h4>rent price</h4>
-</div>
-</div>
+<hr>
 
+<!-- BOTTOM CONTENT -->
+<div class="row">
 
-</div>
-<div class= "row">
-<div class="col-xs-12">
-<h3> Settings </h3>
-<h4> Edit Account information</h4>
-<h5> name</h5>
-<input></input>
-<h4> upload profile image </h4>
+  <!-- SIDEBAR -->
+  <div class= "col-xs-3">
+    <nav class="navbar navbar-default" id="sidebar-wrapper" role="navigation">
+      <ul class="nav sidebar-nav">
+          <li>
+              <a class="to-upload-artworks">Upload Art</a>
+          </li>
+          <li>
+              <a class="to-artist-settings">Settings</a>
+          </li>
+          <li>
+              <a class="to-artist-artworks">Show Artwork</a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- END OF SIDEBAR -->
 
-<input type='file' />
-<img id="myImg" src="#" alt="your image" />
-</div>
+  <!-- PAGE CONTENT -->
+  <div class= "col-xs-9">
+    <%= render 'statics/artist/artist_artworks' %>
+    <%= render 'statics/artist/artist_settings' %>
+  </div>
 
 </div>
