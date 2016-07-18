@@ -10,14 +10,6 @@ $.auth.configure([
   {
     default: {
       apiUrl: location.origin,
-      signOutPath:           '/auth/sign_out',
-      emailSignInPath:       '/auth/sign_in',
-      emailRegistrationPath: '/auth',
-      accountUpdatePath:     '/auth',
-      accountDeletePath:     '/auth',
-      passwordResetPath:     '/auth/password',
-      passwordUpdatePath:    '/auth/password',
-      tokenValidationPath:   '/auth/validate_token'
     }
   }, {
     rentee: {

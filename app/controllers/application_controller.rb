@@ -5,9 +5,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   before_action :get_current_artist
+  before_action :get_current_rentee
 
   def authenticate_artist!
     render json: {message: "Unauthorize"} if current_artist.nil?
+  end
+
+  def authenticate_rentee!
+    render json: {message: "Unauthorize"} if current_rentee.nil?
   end
 
   def get_current_artist
@@ -23,6 +28,24 @@ class ApplicationController < ActionController::Base
 
       @current_artist = current_artist
     end
-    @current_artist ||= Rentee.find_by(uid: auth_headers["uid"])
+    @current_artist
+  end
+
+  def get_current_rentee
+    return nil unless cookies[:authHeaders]
+    auth_headers = JSON.parse cookies[:authHeaders]
+
+    expiration_datetime = DateTime.strptime(auth_headers["expiry"], "%s")
+    current_rentee = Rentee.find_by(uid: auth_headers["uid"])
+
+    if current_rentee &&
+       current_rentee.tokens.has_key?(auth_headers["client"]) &&
+       expiration_datetime > DateTime.now
+
+      @current_rentee = current_rentee
+    end
+    @current_rentee
   end
 end
+
+
