@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   root 'statics#home'
 
+  get '/artist/signup' => 'auth#signup'
   get '/rentee/signup' => 'rentee_auth#signup'
 
-  get '/artist/signup' => 'auth#signup'
+  get '/artist/login' => 'auth#login'
+  get '/rentee/login' => 'rentee_auth#login'
 
-  get '/login' => 'auth#login'
 
   get '/secret' => 'statics#secret'
 
