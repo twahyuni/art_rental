@@ -1,43 +1,57 @@
-<img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
+<!-- TEMPORARY PLACEHOLDER -->
 <button id="logout-button">Logout</button>
-
 <%= current_rentee.email %>
+<br><br>
 
-<h3>Name</h3>
-<h3>location</h3>
-<h4>bio</h4>
+<!-- TOP PROFILE -->
+<div class="row">
+  <!-- PICTURE  -->
+  <div class= "col-xs-3">
+    <img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
+  </div>
+  <!-- PROFILE INFORMATION -->
+  <div class= "col-xs-6">
+    <h1>Rentee Name </h1>
+    <h3> Rentee Location </h3>
+  </div>
+  <!-- CONTACT INFORMATION -->
+  <div class= "col-xs-3 pull-right">
+    <h3> Rentee Contact </h3>
+  </div>
+</div>
+<hr>
 
-<div class="user_own_settings">
-<li>Upload picture</li>
-<li> Profile Setting</li>
-<li>Show gallery</li>
+<!-- BOTTOM CONTENT -->
+<div class="row">
+
+  <!-- SIDEBAR -->
+  <div class= "col-xs-3">
+    <nav class="navbar navbar-default" id="sidebar-wrapper" role="navigation">
+      <ul class="nav sidebar-nav">
+          <li>
+              <a class="to-upload-picture">Upload Picture</a>
+              <%= render 'statics/rentee/rentee_upload_pic' %>
+          </li>
+          <li>
+              <a class="to-rentee-settings">Settings</a>
+          </li>
+          <li>
+              <a class="to-rentee-gallery">Show Gallery</a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- END OF SIDEBAR -->
+
+  <!-- PAGE CONTENT -->
+  <div class= "col-xs-9">
+    <%= render 'statics/rentee/rentee_gallery' %>
+    <%= render 'statics/rentee/rentee_settings' %>
+  </div>
 
 </div>
 
-
-  <section class="regular">
-    <div>
-      <img src="http://placehold.it/350x300?text=1">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=2">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=3">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=4">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=5">
-    </div>
-    <div>
-      <img src="http://placehold.it/350x300?text=6">
-    </div>
-  </section>
-<p> bio : bla bla bla this is a paragraph</p>
-
-<div id="map"></div>
+<!-- <img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
 
 <div class="setting">
 <h3> Settings </h3>
@@ -46,11 +60,8 @@
 <input></input>
 <h4> upload profile image </h4>
 
-<input type='file' />
-<img id="myImg" src="#" alt="your image" />
 
-
-</div>
+</div> -->
 
 
 

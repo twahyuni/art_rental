@@ -26,5 +26,6 @@ Rails.application.routes.draw do
     resources :artworks
     resources :bubbles
     resources :galleries
+    post '/galleries/create_gallery_picture', to: 'galleries#create'
   end
 end

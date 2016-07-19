@@ -8,12 +8,6 @@ $(document).ready(function(){
  //    }
  //  });
 
-  $('.to-upload-artworks').click(function(){
-  console.log("upload art");
-
-  $('#upload-art-Modal').modal('show');
-  });
-
 // $('#edit-artist-info-form').on('submit', function(e){
 //    e.preventDefault();
 
