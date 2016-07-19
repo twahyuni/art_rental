@@ -3,14 +3,15 @@ $(document).ready(function() {
     artist_avatar_upload: function () {
       var that = this;
 
-      // $("#artist-avatar-upload").uploadFile({
-      //   url:"/",
-      //   dragDrop:true,
-      //   showPreview:true,
-      //   previewHeight: "100px",
-      //   previewWidth: "100px"
-      //   // fileName:"myfile"
-      // });
+    $('#fileupload').fileupload({
+    url: 'php/index.php',
+    done: function (e, data) {
+        $.each(data.result, function (index, file) {
+            $('<p/>').text(file.name).appendTo('body');
+        });
+      }
+    });
+
 
     },
     init: function () {

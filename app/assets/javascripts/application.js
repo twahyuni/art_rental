@@ -4,8 +4,12 @@
 //= require pubsub-js/src/pubsub
 //= require j-toker/dist/jquery.j-toker
 //= require bootstrap-sprockets
-//= require_tree .
 
+//= require blueimp-file-upload/js/vendor/jquery.ui.widget
+//= require blueimp-file-upload/js/jquery.iframe-transport
+//= require blueimp-file-upload/js/jquery.fileupload
+
+//= require_tree .
 
 $(document).ready(function(){
   var cookies = document.cookie;
