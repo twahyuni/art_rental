@@ -4,12 +4,19 @@ $(document).ready(function() {
       var that = this;
 
     $('#fileupload').fileupload({
-    url: 'php/index.php',
-    done: function (e, data) {
-        $.each(data.result, function (index, file) {
-            $('<p/>').text(file.name).appendTo('body');
-        });
-      }
+        url: '/artists',
+        metod: 'put',
+        add: function (e, data) {
+            data.context = $('<button/>').text('Upload')
+                .appendTo(document.body)
+                .click(function () {
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.submit();
+                });
+        },
+        done: function (e, data) {
+            data.context.text('Upload finished.');
+        }
     });
 
 
