@@ -6,22 +6,56 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$.auth.configure([
-  {
-    default: {
-      apiUrl: location.origin,
+
+$(document).ready(function(){
+  var cookies = document.cookie;
+
+  console.log("a", cookies);
+  $.auth.configure([
+    {
+      default: {
+        apiUrl: location.origin,
+      }
+    }, {
+      rentee: {
+        apiUrl:                  location.origin,
+        signOutUrl:              '/rentee_auth/sign_out',
+        emailSignInPath:         '/rentee_auth/sign_in',
+        emailRegistrationPath:   '/rentee_auth',
+        accountUpdatePath:       '/rentee_auth',
+        accountDeletePath:       '/rentee_auth',
+        passwordResetPath:       '/rentee_auth/password',
+        passwordUpdatePath:      '/rentee_auth/password',
+        tokenValidationPath:     '/rentee_auth/validate_token',
+
+        handleLoginResponse: function(resp) {
+          return resp.data;
+        },
+
+        handleAccountUpdateResponse: function(resp) {
+          return resp.data;
+        },
+
+        handleTokenValidationResponse: function(resp) {
+          return resp.data;
+        }
+      }
     }
-  }, {
-    rentee: {
-      apiUrl:                  location.origin,
-      signOutUrl:              '/rentee_auth/sign_out',
-      emailSignInPath:         '/rentee_auth/sign_in',
-      emailRegistrationPath:   '/rentee_auth',
-      accountUpdatePath:       '/rentee_auth',
-      accountDeletePath:       '/rentee_auth',
-      passwordResetPath:       '/rentee_auth/password',
-      passwordUpdatePath:      '/rentee_auth/password',
-      tokenValidationPath:     '/rentee_auth/validate_token'
-    }
-  }
-]);
+  ]).then(function(resp){
+    console.log("Artist is loggedin")
+  }).fail(function(resp){
+    console.log("Artist is not loggedin")
+    document.cookie = cookies;
+
+    console.log("b", cookies);
+  });
+
+    $.auth.validateToken({config: "rentee"}).then(function(resp){
+      console.log("Rentee is loggedin")
+      document.cookie = cookies;
+
+      console.log("c", cookies);
+    }).fail(function(resp){
+      console.log("Rentee is not loggedin")
+    })
+})

@@ -63,11 +63,11 @@ $(document).ready(function() {
 
     $.auth.emailSignIn(rentee_params).then(function(resp){
       console.log(resp);
-      document.location.href="/rentee_profile";
       $('#artist_profile').hide();
+      location.href = "/rentee_profile";
     }).fail(function(resp){
       console.log(resp);
-    });
+    })
   });
 
   // AUTH LOGOUT

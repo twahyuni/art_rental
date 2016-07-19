@@ -11,4 +11,10 @@ class StaticsController < ApplicationController
   def rentee_profile
   end
 
+  def searched_artist_profile
+  end
+
+  def searched_rentee_profile
+  end
+
 end

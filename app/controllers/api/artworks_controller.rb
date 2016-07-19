@@ -41,6 +41,6 @@ private
   end
 
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :size, :medium, :status, :barcode, :category, :rent_price, :available_date, :location, :artist_id, :artwork_image_file_name)
+    params.require(:artwork).permit(:title, :description, :size, :medium, :status, :barcode, :category, :rent_price, :available_date, :location, :artist_id, :artwork)
   end
 end
