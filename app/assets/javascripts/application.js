@@ -47,24 +47,26 @@ $(document).ready(function(){
     }
   ]).then(function(resp){
     console.log("Artist is loggedin")
+    setupAjax();
   }).fail(function(resp){
     console.log("Artist is not loggedin")
     document.cookie = cookies;
-
-    console.log("b", cookies);
     $.auth.validateToken({config: "rentee"}).then(function(resp){
       console.log("Rentee is loggedin")
       document.cookie = cookies;
-
+      setupAjax();
       console.log("c", cookies);
     }).fail(function(resp){
       console.log("Rentee is not loggedin")
+      setupAjax();
     })
   });
 
-  $.ajaxSetup({
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-    },
-  })
+  function setupAjax () {
+    $.ajaxSetup({
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      }
+    })
+  }
 })
