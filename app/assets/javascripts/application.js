@@ -48,8 +48,6 @@ $(document).ready(function(){
     document.cookie = cookies;
 
     console.log("b", cookies);
-  });
-
     $.auth.validateToken({config: "rentee"}).then(function(resp){
       console.log("Rentee is loggedin")
       document.cookie = cookies;
@@ -58,4 +56,6 @@ $(document).ready(function(){
     }).fail(function(resp){
       console.log("Rentee is not loggedin")
     })
+  });
+
 })

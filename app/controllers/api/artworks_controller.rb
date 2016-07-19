@@ -10,7 +10,7 @@ class Api::ArtworksController < ApplicationController
   end
 
   def create
-    @artwork = current_artist.artworks.new(post_params)
+    @artwork = current_artist.artworks.new(artwork_params)
     if @artwork.save
       render 'show'
     else
@@ -19,7 +19,7 @@ class Api::ArtworksController < ApplicationController
   end
 
   def update
-    @artwork.assign_attributes(post_params)
+    @artwork.assign_attributes(artwork_params)
     if @artwork.save
       render 'show'
     else
