@@ -3,22 +3,21 @@ $(document).ready(function() {
     artist_avatar_upload: function () {
       var that = this;
 
-    $('#fileupload').fileupload({
-        url: '/artists',
-        metod: 'put',
-        add: function (e, data) {
-            data.context = $('<button/>').text('Upload')
-                .appendTo(document.body)
-                .click(function () {
-                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-                    data.submit();
-                });
-        },
-        done: function (e, data) {
-            data.context.text('Upload finished.');
-        }
-    });
-
+      $('#fileupload').fileupload({
+          url: '/api/artists',
+          method: 'put',
+          add: function (e, data) {
+              data.context = $('<button/>').text('Upload')
+                  .appendTo(document.body)
+                  .click(function () {
+                      data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                      data.submit();
+                  });
+          },
+          done: function (e, data) {
+              data.context.text('Upload finished.');
+          }
+      });
 
     },
     init: function () {
