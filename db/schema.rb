@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719081305) do
+ActiveRecord::Schema.define(version: 20160719093849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20160719081305) do
     t.string   "barcode"
     t.string   "category"
     t.float    "rent_price"
-    t.date     "available_date"
     t.string   "location"
     t.integer  "artist_id"
     t.datetime "created_at",                 null: false
@@ -67,6 +66,14 @@ ActiveRecord::Schema.define(version: 20160719081305) do
     t.string   "artwork_image_content_type"
     t.integer  "artwork_image_file_size"
     t.datetime "artwork_image_updated_at"
+  end
+
+  create_table "booking_dates", force: :cascade do |t|
+    t.date     "available_start_date"
+    t.date     "available_end_date"
+    t.integer  "artwork_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "bubbles", force: :cascade do |t|
