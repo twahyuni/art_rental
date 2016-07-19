@@ -6,21 +6,19 @@
     <%= current_artist.avatar %>
     <h4> Edit Account information</h4>
     <h5> Full Name</h5>
-    <input type="name" name="name">
+    <input type="text" name="name">
     <h5> Username</h5>
-    <input type="username" name="username">
+    <input type="text" name="username">
     <h5> Website</h5>
-    <input type="website" name="website">
+    <input type="text" name="website">
     <h5> Contact</h5>
-    <input type="contact" name="contact">
+    <input type="text" name="contact">
     <h5> Description</h5>
-    <input type="description" name="description">
+    <input type="text" name="description">
+
+    <h5> Profile Image </h5>
+    <input type="file" name="avatar" multiple>
+
     <button  type="submit"> Edit</button>
   </form>
-
-  <!-- <h4> upload profile image </h4>
-  <input type='file' /> -->
-  <input id="fileupload" type="file" name="files[]" multiple>
-
-  <img id="myImg" src="#" alt="your image" />
 </div>

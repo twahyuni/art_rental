@@ -1,5 +1,5 @@
 class StaticsController < ApplicationController
-  before_action :authenticate_artist!, only: [:artist_profile]
+  before_action :authenticate_artist!, only: [:artist_profile, :testing]
   before_action :authenticate_rentee!, only: [:rentee_profile]
 
   def home
@@ -16,5 +16,4 @@ class StaticsController < ApplicationController
 
   def searched_rentee_profile
   end
-
 end

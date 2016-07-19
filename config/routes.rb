@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   as :rentee do
     # Define routes for Rentee within this block.
   end
+  post '/testing', to: 'statics#testing'
 
   root 'statics#home'
 
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :artists
+    put '/artists/update_profile', to: 'artists#update'
     resources :rentees
     resources :artworks
     resources :bubbles

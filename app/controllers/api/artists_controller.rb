@@ -1,6 +1,6 @@
 class Api::ArtistsController < ApplicationController
   before_action :authenticate_artist!, except: [:index, :show]
-  before_action :set_artist, only: [:show, :update, :destroy]
+  before_action :set_artist, only: [:show]
 
   def index
     @artists = Artist.all
@@ -8,7 +8,6 @@ class Api::ArtistsController < ApplicationController
 
   def show
   end
-
 
   def create
     @artist = current_artist.new(artist_params)
@@ -20,16 +19,18 @@ class Api::ArtistsController < ApplicationController
   end
 
   def update
-    @artist.assign_attributes(artist_params)
-    if @artist.save
-      render 'show'
+    puts artist_params
+    current_artist.assign_attributes(artist_params)
+    if current_artist.save
+      # render 'show'
+      render json: {current_artist: current_artist, avatar: current_artist.avatar.url(:medium)}
     else
-      render json: @artist.errors.messages, status: 400
+      render json: {errors: current_artist.errors.messages}, status: 400
     end
   end
 
   def destroy
-    @artist.destroy
+    current_artist.destroy
   end
 
 private
@@ -42,7 +43,7 @@ private
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :email, :username, :nickname, :description, :website, :contact, :avatar)
+    params.permit(:name, :email, :username, :nickname, :description, :website, :contact, :avatar)
   end
 
 end
