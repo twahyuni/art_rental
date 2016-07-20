@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "j-toker": "^0.0.9",
-    "blueimp-file-upload": "^9.12.5"
+    "blueimp-file-upload": "^9.12.5",
+    "datetimepicker": "^2.5.4"
   }
 }

@@ -1,12 +1,23 @@
 class Api::ArtworksController < ApplicationController
-  before_action :authenticate_artist!, except: [:index, :show]
+  before_action :authenticate_artist!, except: [:index, :show, :search_category]
   before_action :set_artwork, only: [:show]
 
   def index
     @artworks = Artwork.includes(:artist).all
   end
 
+  def artist_index
+    @artworks = current_artist.artworks.all
+    render 'index'
+  end
+
   def show
+  end
+
+  def search_category
+    @artworks = Artwork.where(:category => (params[:category]))
+    @category = params[:category]
+    render 'index'
   end
 
   def create
@@ -41,6 +52,6 @@ private
   end
 
   def artwork_params
-    params.permit(:title, :description, :size, :medium, :status, :barcode, :category, :rent_price, :available_date, :location, :artist_id, :artwork)
+    params.permit(:title, :description, :size, :medium, :status, :barcode, :category, :rent_price, :available_date, :location, :artist_id, :artwork_image)
   end
 end

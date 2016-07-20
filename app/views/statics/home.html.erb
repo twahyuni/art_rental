@@ -1,6 +1,73 @@
-<a href='/artist/login'>Artist Login</a>
+<div id="category-div">
+  <h1> CATEGORIES </h1>
+  <ul>
+    <li>
+      <button class="search_category_button" data-category="abstract" > ABSTRACT </button>
+    </li>
+    <li>
+      <button class="search_category_button" data-category="watercolour" > WATERCOLOUR </button>
+    </li>
+    <li>
+      <button class="search_category_button" data-category="oil" > OIL </button>
+    </li>
+    <li>
+      <button class="search_category_button" data-category="sculpture" > SCULPTURE </button>
+    </li>
+    <li>
+      <button class="search_category_button" data-category="graphic" > graphic </button>
+    </li>
+  </ul>
+</div>
 
-<a href='/rentee/login'>Rentee Login</a>
+<!-- container searched results match category -->
+<div class= "search-artwork" id="search-category-artwork"> </div>
 
-<a href='/artist/signup'>Artist Signup</a>
-<a href='/rentee/signup'>Rentee Signup</a>
+<!-- MODAL RESERVATIOM - FOR ART WROK -->
+<div id="reservation-artwork-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> RESERVATION </h4>
+      </div>
+
+      <div class="reservation-artworks-details-container">
+        <p>Some text in the modal.</p>
+      </div>
+
+      <div class= "reservation-picked-date">
+        <!-- ARTIST TWO CALENDARS -->
+        <div class="row">
+          <div class='col-sm-3'>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker-open-reservation'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class='col-sm-3'>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker-close-reservation'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+

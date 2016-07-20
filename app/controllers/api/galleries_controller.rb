@@ -6,6 +6,11 @@ class Api::GalleriesController < ApplicationController
     @galleries = Gallery.includes(:rentee).all
   end
 
+  def rentee_index
+    @galleries = current_rentee.galleries.all
+    render 'index'
+  end
+
   def show
   end
 
@@ -35,7 +40,7 @@ class Api::GalleriesController < ApplicationController
 private
 
   def set_gallery
-    @gallery = gallery.includes(:rentee).find_by_id(params[:id])
+    @gallery = Gallery.includes(:rentee).find_by_id(params[:id])
     if @gallery.nil?
       render json: {message: "Cannot find arwork with ID #{params[:id]}"}
     end

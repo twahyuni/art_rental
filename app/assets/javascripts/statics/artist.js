@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var image_upload = {
+    // EDIT UPDATE ARTIST PROFILE
     bindEditButton: function () {
       var that = this;
       $('#edit-artist-info-form').on("submit", function (e) {

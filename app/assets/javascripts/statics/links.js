@@ -25,7 +25,7 @@ $(document).ready(function(){
     },
     bindToArtistUpload: function(){
 
-      $('.to-upload-artworks').click(function(){
+      $('.to-upload-artworks').on("click", function(){
         $('#upload-art-Modal').modal('show');
       });
 

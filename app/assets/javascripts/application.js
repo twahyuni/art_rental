@@ -9,6 +9,9 @@
 //= require blueimp-file-upload/js/jquery.iframe-transport
 //= require blueimp-file-upload/js/jquery.fileupload
 
+//= require moment
+//= require bootstrap-datetimepicker
+
 //= require_tree .
 
 $(document).ready(function(){

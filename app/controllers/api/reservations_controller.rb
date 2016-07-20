@@ -3,7 +3,7 @@ class Api::ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show]
 
   def index
-    @reservations = reservation.includes(:rentee).all
+    @reservations = reservation.includes(rentee: :artist).all
   end
 
   def show
@@ -34,9 +34,9 @@ class Api::ReservationsController < ApplicationController
 private
 
   def set_reservation
-    @reservation = reservation.includes(:rentee).find_by_id(params[:id])
+    @reservation = reservation.includes(rentee: :artist).find_by_id(params[:id])
     if @reservation.nil?
-      render json: {message: "Cannot find arwork with ID #{params[:id]}"}
+      render json: {message: "Cannot find reservation with ID #{params[:id]}"}
     end
   end
 
@@ -44,4 +44,4 @@ private
     params.permit()
   end
 end
-end
+

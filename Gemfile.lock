@@ -48,6 +48,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     bower (0.0.5)
       multi_json
     builder (3.2.2)
@@ -93,6 +95,8 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -192,11 +196,13 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-v1
   bootstrap-sass (~> 3.3.6)
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   bower
   byebug
   devise_token_auth
   dotenv-rails
   jbuilder (~> 2.0)
+  momentjs-rails (>= 2.9.0)
   omniauth
   paperclip (~> 4.3)
   pg
