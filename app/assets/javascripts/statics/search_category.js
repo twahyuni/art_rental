@@ -43,14 +43,17 @@ var search_engine = {
       success: function (artwork) {
         console.log(artwork)
 
-        html =  '<div class="row">' + '<div class= "col-xs-7">' +
-                  '<img src="'+ artwork.artwork_image +' " width="300" height="300">' +
-                '</div>' + '<div class= "col-xs-5">' +
-                  '<h4>'+ artwork.title+'</h4>' +
-                  '<h4>'+ artwork.description + '</h4>' +
-                  '<h6>'+ artwork.size + '</h6>' +
-                  '<h6>' + artwork.owner + '</h6>' +
-                '</div>' + '</div>'
+        html =  '<div class="row" data-id="'+ artwork.id + '" data-owner-id="'+ artwork.artist_id + '">' +
+                  '<div class= "col-xs-7">' +
+                    '<img src="'+ artwork.artwork_image +' " width="300" height="300">' +
+                  '</div>' +
+                  '<div class= "col-xs-5">' +
+                    '<h4>'+ artwork.title+'</h4>' +
+                    '<h4>'+ artwork.description + '</h4>' +
+                    '<h6>'+ artwork.size + '</h6>' +
+                    '<h6>' + artwork.owner + '</h6>' +
+                  '</div>' +
+                '</div>'
         $('.reservation-artworks-details-container').html(html);
       }
     });
@@ -74,6 +77,7 @@ $(document).on('click', '.rent_artwork', function(e) {
   artwork_id = $(this).parent('div').find('.artwork_id').html();
   console.log(artwork_id);
   search_engine.init2();
+
 
   console.log("modal open")
   $('#reservation-artwork-Modal').modal('show');

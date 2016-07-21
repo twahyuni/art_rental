@@ -1,6 +1,6 @@
 class Api::ArtworksController < ApplicationController
-  before_action :authenticate_artist!, except: [:index, :show, :search_category]
-  before_action :set_artwork, only: [:show]
+  before_action :authenticate_artist!, except: [:index, :show, :update, :search_category]
+  before_action :set_artwork, only: [:show, :update, :destroy]
 
   def index
     @artworks = Artwork.includes(:artist).all

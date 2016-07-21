@@ -1,9 +1,9 @@
 class Api::ReservationsController < ApplicationController
-  before_action :authenticate_rentee!, except: [:index, :show]
+  # before_action :authenticate_rentee!, except: [:index, :show]
   before_action :set_reservation, only: [:show]
 
   def index
-    @reservations = reservation.includes(rentee: :artist).all
+    @reservations = Reservation.joins(:rentee, {artwork: :artist}).all
   end
 
   def show
@@ -34,14 +34,14 @@ class Api::ReservationsController < ApplicationController
 private
 
   def set_reservation
-    @reservation = reservation.includes(rentee: :artist).find_by_id(params[:id])
+    @reservation = Reservation.joins(:rentee, {artwork: :artist}).find_by_id(params[:id])
     if @reservation.nil?
       render json: {message: "Cannot find reservation with ID #{params[:id]}"}
     end
   end
 
   def reservation_params
-    params.permit()
+    params.permit(:start_reservation_date, :end_reservation_date, :artist_id, :artwork_id)
   end
 end
 

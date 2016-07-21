@@ -2,23 +2,15 @@ class Reservation < ActiveRecord::Base
   has_many :bubbles
 
   belongs_to :rentee
-  has_one :artwork
+  belongs_to :artwork
 
-  validates :overlap
+  validate :not_overlap
 
-private
-
-  def overlap
-    booking_start = BookingDate.where("artwork_id = #{self.artwork_id}").where("start_reservation_date > #{self.start_reservation_date} AND end_reservation_date < #{self.start_reservation_date}")
-
-    booking_end = BookingDate.where("artwork_id = #{self.artwork_id}").where("start_reservation_date > #{self.end_reservation_date} AND end_reservation_date < #{self.end_reservation_date}")
-
-    if booking_start
-      errors.add(:start_date, message: "Date is overlapping with existing entries")
-    end
-
-    if booking_end
-      errors.add(:end_date, message: "Date is overlapping with existing entries")
-    end
+  private
+  def not_overlap
+    errors.add(:start_reservation_date, message: "Date is overlapping with existing entries") unless Reservation.where("artwork_id = #{self.artwork_id}").where("? >= start_reservation_date AND ? <= end_reservation_date",
+                                                            start_reservation_date, start_reservation_date).count == 0
+    errors.add(:end_reservation_date, message: "Date is overlapping with existing entries") unless Reservation.where("artwork_id = #{self.artwork_id}").where("? >= start_reservation_date AND ? <= start_reservation_date",
+                                                            start_reservation_date, end_reservation_date).count == 0
   end
 end

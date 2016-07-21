@@ -2,63 +2,54 @@ $(document).ready(function() {
   var ajaxReservation = {
     bindShowAvailableDates: function() {
 
-      var that = this;
+    var that = this;
+    var today = new Date()
 
-      $('#').on("click", function (e) {
+    // RENDER THE TWO CALENDARS (FOR HOME PAGE)
+    $('#datetimepicker-open-reservation').datetimepicker({
+      format: 'MM/DD/YYYY',
+      minDate: today
+    });
 
-        // GET THE RESERVATION DATES RELATED TO ARTWORK AJAX ....???
-        $.ajax({
-          url: 'api/reservations/' + id,
-          method: 'get',
-          success: function (resp) {
-            console.log(resp)
-          },
-          error: function (resp) {
-            console.log(resp);
-          }
-        })
+    $('#datetimepicker-close-reservation').datetimepicker({
+      format: 'MM/DD/YYYY',
+      minDate: today
+    });
 
-
-        // GENERATE DATE BETWEEN AFTER GET THE RESERVATION DATES (FOR THE RENDER) ....????
-
-        reserved_dates = [];
-
-
-        // RENDER THE TWO CALENDARS
-        $('#datetimepicker-open-reservation').datetimepicker({
-          format: 'MM/DD/YYYY',
-          disableDates: reserved_dates
-        });
-
-        $('#datetimepicker-close-reservation').datetimepicker({
-          format: 'MM/DD/YYYY',
-          disableDates: reserved_dates
-        });
-
-        // LINK THE TWO CALENDARS
-        $("#datetimepicker-open-reservation").on("dp.change", function (e) {
-          $('#datetimepicker-close-reservation').data("DateTimePicker").minDate(e.date);
-        });
-
-      });
+    // LINK THE TWO CALENDARS
+    $("#datetimepicker-open-reservation").on("dp.change", function (e) {
+      $('#datetimepicker-close-reservation').data("DateTimePicker").minDate(e.date);
+    });
 
     },
     bindReservationClick: function() {
       var that = this;
 
-      $('#').on("submit", function (e) {
+      $('.reservation-date-button').on("click", function (e) {
 
         e.preventDefault();
 
-        // GET THE DATE OF START AND END
-        var start_reservation = $('#datetimepicker-open-reservation').data("DateTimePicker").date();
-        var end_reservation = $('#datetimepicker-close-reservation').data("DateTimePicker").date();
+        // GET THE DATE OF START AND END AND PARSE THEM
+        var $sr = $('#datetimepicker-open-reservation').data("DateTimePicker").date();
+        var $er = $('#datetimepicker-close-reservation').data("DateTimePicker").date();
+
+        var start_reservation_date = moment($sr).format("YYYY-MM-DD");
+        var end_reservation_date = moment($er).format("YYYY-MM-DD");
+        var artwork_id = $('.reservation-date-button').parents('div').find('.row').attr('data-id');
+        var artist_id = $('.reservation-date-button').parents('div').find('.row').attr('data-owner-id');
+
+        var data = {
+          start_reservation_date: start_reservation_date,
+          end_reservation_date: end_reservation_date,
+          artwork_id: artwork_id,
+          artist_id: artist_id
+        }
 
         // PUSH INTO AJAX OF RESERVATION
         $.ajax({
-          url: 'api/reservations',
+          url: '/api/reservations',
           method: 'post',
-          data: {start_reservation_date: start_reservation, end_reservation_date: end_reservation},
+          data: data,
           success: function (resp) {
             console.log(resp)
           }
@@ -73,6 +64,6 @@ $(document).ready(function() {
     }
   }
 
-  // ajaxReservation.init();
+  ajaxReservation.init();
 
 });
