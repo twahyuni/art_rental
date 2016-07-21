@@ -1,9 +1,14 @@
 class Api::ReservationsController < ApplicationController
-  # before_action :authenticate_rentee!, except: [:index, :show]
-  before_action :set_reservation, only: [:show]
+  before_action :authenticate_rentee!, except: [:index, :show, :rentee_index]
+  before_action :set_reservation, only: [:show, :update, :destroy]
 
   def index
-    @reservations = Reservation.joins(:rentee, {artwork: :artist}).all
+    @reservations = Reservation.joins(:rentee, {artwork: :artist}).includes(:rentee, {artwork: :artist}).all
+  end
+
+  def rentee_index
+    @reservations = current_rentee.reservations
+    render 'index'
   end
 
   def show
@@ -29,19 +34,21 @@ class Api::ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
+
+    head 200
   end
 
 private
 
   def set_reservation
-    @reservation = Reservation.joins(:rentee, {artwork: :artist}).find_by_id(params[:id])
+    @reservation = Reservation.joins(:rentee, {artwork: :artist}).includes(:rentee, {artwork: :artist}).find_by_id(params[:id])
     if @reservation.nil?
       render json: {message: "Cannot find reservation with ID #{params[:id]}"}
     end
   end
 
   def reservation_params
-    params.permit(:start_reservation_date, :end_reservation_date, :artist_id, :artwork_id)
+    params.permit(:start_reservation_date, :end_reservation_date, :artist_id, :artwork_id, :id)
   end
 end
 

@@ -1,6 +1,6 @@
 class Api::GalleriesController < ApplicationController
   before_action :authenticate_rentee!, except: [:index, :show]
-  before_action :set_gallery, only: [:show]
+  before_action :set_gallery, only: [:show, :update, :destroy]
 
   def index
     @galleries = Gallery.includes(:rentee).all

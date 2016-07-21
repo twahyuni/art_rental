@@ -2,6 +2,7 @@ var artwork_id_owner = ""
 var edit_artwork_id = ""
 
 $(document).ready(function() {
+
   manage_artwork.init1();
   manage_artwork.init3();
 
@@ -55,6 +56,8 @@ var manage_artwork = {
   },
   get_artworks: function() {
     var that = this;
+
+    if (!$('body').hasClass('artist_profile')) { return false; }
 
     $.ajax({
       url: '/api/artist/artworks',

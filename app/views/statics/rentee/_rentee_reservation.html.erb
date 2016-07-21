@@ -1,0 +1,36 @@
+<div class="rentee-reservation content">
+  <!-- RENTED/RENTING ARTWORKS -->
+  <div id="rented-artworks-index">
+    <h1> Rented artworks </h1>
+    <p> populate rented artworks here </p>
+  </div>
+
+  <!-- Modal -->
+  <div id="rentee-reservation-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+          <h4 class="modal-title reservation-show reservation-edit-delete" style="display:none;"></h4>
+        </div>
+
+        <!-- MODAL EDIT -->
+        <div class="modal-body reservation-edit-delete" style="display:none;"></div>
+
+        <!-- MODAL SHOW -->
+        <div class="modal-body reservation-show" style="display:none;"></div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning reservation-show" id="reservation-modal-edit-btn" style="display:none;">Edit</button>
+          <button type="button" class="btn btn-primary reservation-edit-delete" id="reservation-modal-save-btn" style="display:none;">Save</button>
+          <button type="button" class="btn btn-primary reservation-edit-delete" id="reservation-modal-delete-btn" style="display:none;">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

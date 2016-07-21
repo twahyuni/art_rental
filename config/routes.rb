@@ -48,5 +48,6 @@ Rails.application.routes.draw do
     get '/rentee/galleries', to: 'galleries#rentee_index'
 
     resources :reservations
+    get '/rentee/reservations', to: 'reservations#rentee_index'
   end
 end

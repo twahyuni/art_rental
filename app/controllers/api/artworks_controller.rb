@@ -3,7 +3,7 @@ class Api::ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :update, :destroy]
 
   def index
-    @artworks = Artwork.includes(:artist).all
+    @artworks = Artwork.includes(:artist).joins(:artist).all
   end
 
   def artist_index
@@ -45,7 +45,7 @@ class Api::ArtworksController < ApplicationController
 private
 
   def set_artwork
-    @artwork = Artwork.includes(:artist).find_by_id(params[:id])
+    @artwork = Artwork.includes(:artist).joins(:artist).find_by_id(params[:id])
     if @artwork.nil?
       render json: {message: "Cannot find arwork with ID #{params[:id]}"}
     end

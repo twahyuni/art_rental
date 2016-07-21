@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  if (!$('body').hasClass('rentee_profile')) { return false; }
+
   var ajaxGallery = {
     // EDIT SETTINGS
     bindUploadButton: function() {

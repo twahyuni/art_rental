@@ -9,6 +9,7 @@ $(document).ready(function(){
       var that = this;
 
       $('.to-artist-settings').on("click", function () {
+
         that.hideAllContent();
         $('.artist-settings').show();
       });
