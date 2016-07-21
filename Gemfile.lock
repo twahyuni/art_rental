@@ -52,8 +52,6 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap3-datetimepicker-rails (4.17.37)
-      momentjs-rails (>= 2.8.1)
     bower (0.0.5)
       multi_json
     builder (3.2.2)
@@ -202,7 +200,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.6)
-  bootstrap3-datetimepicker-rails (~> 4.17.37)
   bower
   byebug
   devise_token_auth

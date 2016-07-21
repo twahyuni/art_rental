@@ -2,26 +2,27 @@
   <h3> ARTWORKS </h3>
   <h5> total artworks : <%= current_artist.artworks.length %> </h5>
 
-<div id="artist-artwork-container"> </div>
+  <div id="artist-artwork-container"> </div>
 
-<div id="update-artwork-Modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div id="update-artwork-Modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"> EDIT EDTAILS OF ARTWORK </h4>
-      </div>
-      <div class="update-artworks-details-container">
-        <p>Some text in the modal.</p>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> EDIT EDTAILS OF ARTWORK </h4>
+        </div>
+        <div class="update-artworks-details-container">
+          <p>Some text in the modal.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
-
   </div>
 </div>
 

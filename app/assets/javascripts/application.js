@@ -10,7 +10,6 @@
 //= require blueimp-file-upload/js/jquery.fileupload
 
 //= require moment
-//= require bootstrap-datetimepicker
 
 //= require_tree .
 
