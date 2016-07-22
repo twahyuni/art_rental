@@ -13,6 +13,10 @@ $(document).ready(function() {
       config: 'rentee'
     }).then(function(resp){
       console.log(resp);
+       $('#signup-renteeModal').modal('hide');
+       document.location.href="/rentee_profile";
+
+
     }).fail(function(resp){
       console.log(resp);
     });
@@ -28,6 +32,8 @@ $(document).ready(function() {
       password_confirmation: $('#artist-signup-form input[name="password_confirmation"]').val(),
     }).then(function(resp){
       console.log(resp);
+      $('#signup-artistModal').modal('hide');
+      document.location.href="/artist_profile";
     }).fail(function(resp){
       console.log(resp);
     });
