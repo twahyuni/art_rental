@@ -7,7 +7,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   def rentee_index
-    @reservations = current_rentee.reservations
+    @reservations = current_rentee.reservations.joins(:rentee, {artwork: :artist}).includes(:rentee, {artwork: :artist})
     render 'index'
   end
 

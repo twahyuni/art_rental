@@ -1,0 +1,1 @@
+json.partial! 'rentee_template', rentee: @rentee

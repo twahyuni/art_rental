@@ -1,5 +1,6 @@
+<div class= "profile-page-boarder">
 <!-- TEMPORARY PLACEHOLDER -->
-<button id="logout-button">Logout</button>
+<button class="btn btn-default" id="logout-button">Logout</button>
 <%= current_artist.email %>
 <br><br>
 
@@ -7,16 +8,16 @@
 <div class="row">
   <!-- PICTURE  -->
   <div class= "col-xs-3">
-    <img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
+    <img  class= "profile-image" src=<%= current_artist.avatar %> width="200" height="200" class="circle">
   </div>
   <!-- PROFILE INFORMATION -->
   <div class= "col-xs-6">
-    <h1>Artist Name </h1>
-    <h3> Artist Location </h3>
+    <h1><%= current_artist.name %></h1>
+    <h3> <%= current_artist.description %> </h3>
   </div>
   <!-- CONTACT INFORMATION -->
   <div class= "col-xs-3 pull-right">
-    <h3> Artist Contact </h3>
+    <h3> <%= current_artist.contact %> </h3>
   </div>
 </div>
 <hr>
@@ -49,4 +50,5 @@
     <%= render 'statics/artist/artist_settings' %>
   </div>
 
+</div>
 </div>

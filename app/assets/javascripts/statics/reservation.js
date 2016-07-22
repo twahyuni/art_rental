@@ -47,21 +47,21 @@ $(document).ready(function() {
 
       var that = this;
 
+
       // GET THE RESERVATION RELATED TO THIS RENTEE
       $.ajax({
         url: '/api/rentee/reservations',
         method: 'get',
         success: function (reservations) {
           $('#rented-artworks-index').html('');
-
           reservations.forEach(function (reservation) {
 
             var today = moment(new Date()).format('YYYY-MM-DD');
-
-            if (reservation.start_reservation_date <= today && today <= reservation.end_reservation_date) {
-              console.log('not available');
+            var status = ''
+            if (today >= reservation.start_reservation_date && today <= reservation.end_reservation_date) {
+              status = 'NOT AVAILABLE'
             } else {
-              console.log('available')
+              status = 'AVAILABLE'
             }
 
             html = '' +
@@ -76,13 +76,14 @@ $(document).ready(function() {
                   '<h1>' + reservation.artwork_title + '</h1>' +
                   '<p>' + reservation.artwork_medium + '</p>' +
                   '<p>' + reservation.artwork_size + '</p>' +
-                  '<button class="btn btn-success show-reservation-card-button" + data-id="' + reservation.id + '"> AVAILABLE </button>' +
+                  '<button class="btn btn-success show-reservation-card-button" + data-id="' + reservation.id + '">'+ status + '</button>' +
                 '</div>' +
               '</div>' +
             '</div>';
 
             $('#rented-artworks-index').append(html);
           });
+
           that.bindShowReservation();
         }
       });

@@ -1,12 +1,18 @@
 var category = ""
 var artwork_id = ""
+var view_artist_profile_id = ""
 
 $(document).ready(function() {
   $('#reservation-artwork-Modal').modal('hide');
+
   $('.search_category_button').click(function(){
+    $('#header-page').hide();
+    $('.to-small-cat').hide();
+
 
     category = $(this).parent('li').find('.search_category_button').attr("data-category");
     console.log(category);
+    search_engine.init1();
     search_engine.init1();
 
   });
@@ -24,9 +30,13 @@ var search_engine = {
         $('#search-category-artwork').html('');
 
         artworks.forEach(function (artwork) {
-          html = '<div class= "search-artwork" >' +
+          html = '<div class= "search-artwork artwork-box" >' +
                 '<img src="'+ artwork.artwork_image +'" width="200" height="200">' +
-                '<h4>'+ artwork.title + '</h4>' + '<h5>' + artwork.decription + '</h5>'+ '<h6>' + artwork.owner +'</h6>' + '<h6 class= "artwork_id">'+ artwork.id +'</h6>'+ '<button class="rent_artwork">' + "rent" + '</button>'
+                '<h4>'+ artwork.title + '</h4>' +
+                '<h5>' + artwork.decription + '</h5>'+
+                '<a href="/public/artist_profile/' + artwork.owner_id + '">'+ artwork.owner + '</a>' +
+                '<h6 class= "artwork_id">'+ artwork.id +'</h6>'+
+                '<button class="rent_artwork artist-hide btn btn-default">' + "rent" + '</button>'
               '</div>';
           $('#search-category-artwork').append(html);
         });
@@ -54,7 +64,6 @@ var search_engine = {
                     '<h6>' + artwork.owner + '</h6>' +
                   '</div>' +
                 '</div>'
-
         $('.reservation-artworks-details-container').html(html);
       }
     });
@@ -84,3 +93,4 @@ $(document).on('click', '.rent_artwork', function(e) {
   $('#reservation-artwork-Modal').modal('show');
 
 });
+

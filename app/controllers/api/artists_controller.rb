@@ -1,9 +1,9 @@
 class Api::ArtistsController < ApplicationController
-  before_action :authenticate_artist!, except: [:index, :show]
+  before_action :authenticate_artist!, except: [:index, :show, :searched_artist_profile]
   before_action :set_artist, only: [:show]
 
   def index
-    @artists = Artist.all
+    @artists = Artist.includes(:artworks).all
   end
 
   def show
@@ -16,6 +16,10 @@ class Api::ArtistsController < ApplicationController
     else
       render json: @artist.errors.messages, status: 400
     end
+  end
+
+  def  searched_artist_profile
+
   end
 
   def update
@@ -36,7 +40,7 @@ class Api::ArtistsController < ApplicationController
 private
 
   def set_artist
-    @artist = Artist.find_by_id(params[:id])
+    @artist = Artist.includes(:artworks).find_by_id(params[:id])
     if @artist.nil?
       render json: {message: "Cannot find arwork with ID #{params[:id]}"}
     end

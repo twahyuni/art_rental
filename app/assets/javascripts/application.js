@@ -48,16 +48,24 @@ $(document).ready(function(){
       }
     }
   ]).then(function(resp){
+
     console.log("Artist is loggedin")
     setupAjax();
+    $('.rentee-hide').hide();
   }).fail(function(resp){
     console.log("Artist is not loggedin")
     document.cookie = cookies;
+
+
     $.auth.validateToken({config: "rentee"}).then(function(resp){
       console.log("Rentee is loggedin")
+
+
       document.cookie = cookies;
       setupAjax();
       console.log("c", cookies);
+      $('.artist-hide').hide();
+
     }).fail(function(resp){
       console.log("Rentee is not loggedin")
       setupAjax();
@@ -73,3 +81,4 @@ $(document).ready(function(){
     })
   }
 })
+

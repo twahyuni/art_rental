@@ -35,6 +35,8 @@ class Api::GalleriesController < ApplicationController
 
   def destroy
     @gallery.destroy
+
+    head 200
   end
 
 private

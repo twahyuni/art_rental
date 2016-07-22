@@ -21,9 +21,8 @@ Rails.application.routes.draw do
   get '/rentee_profile', to: 'statics#rentee_profile'
 
 
-  get '/artist_profile', to: 'statics#searched_artist_profile'
-  get '/artist_profile', to: 'statics#searched_rentee_profile'
-  # get '/search/category', to: 'statics#search_category'
+  get '/public/artist_profile/:id', to: 'statics#searched_artist_profile'
+  get '/public/rentee_profile/:id', to: 'statics#searched_rentee_profile'
 
 
   get '/artist/inbox', to: 'statics#artist_inbox'

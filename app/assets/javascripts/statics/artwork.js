@@ -57,7 +57,7 @@ var manage_artwork = {
   get_artworks: function() {
     var that = this;
 
-    if (!$('body').hasClass('artist_profile')) { return false; }
+    // if (!$('body').hasClass('artist_profile')) { return false; }
 
     $.ajax({
       url: '/api/artist/artworks',
@@ -67,7 +67,7 @@ var manage_artwork = {
         $('#artist-artwork-container').html('');
 
         artworks.forEach(function (artwork) {
-          html = '<div>' + '<div class="row">'+ '<div class="col-xs-4">'+
+          html = '<div class="artwork-box">' + '<div class="row">'+ '<div class="col-xs-4">'+
                 '<img src="'+ artwork.artwork_image +'" width="200" height="200">' + '</div>' + '<div class="col-xs-6">'+'</h4>'+
                 '<h4>'+ artwork.title+'</h4>' +'<h4>'+ artwork.description + '</h4>'+'<h6>'+ artwork.size+ '</h6>' + '<h6 class= "artwork_id_owner_access">' + artwork.id +'</h6>'+ '<button class= "edit-artwork-button btn btn-default"> EDIT </button>'
                 '</div>' +  '</div>' +
@@ -95,7 +95,7 @@ var manage_artwork = {
                     '<input type="text" id="edit-artwork-title"name= "title" value= "'+ artwork.title +'">' +
                     '<input type="text" id="edit-artwork-description" name= "description" value = "'+ artwork.description + '">' +
                     '<input id="edit-artwork-size"type="text" name= "size" value = "'+ artwork.size + '">' +
-                    '<button  class="update-artwork-button btn btn-default"> SAVE </button>' +
+                    '<button  class="update-artwork-button btn btn-default"> SAVE </button>' + '<button  class="delete-artwork-button btn btn-default"> DELETE </button>'+
                   '</div>' +
                 '</div>'
 
@@ -147,6 +147,27 @@ $(document).on('click', '.update-artwork-button', function(e) {
     }
   })
 });
+
+$(document).on('click', '.delete-artwork-button', function(e) {
+  console.log("DELETE")
+
+  del_artwork_id = $(this).parent('div').find('.edit-art-work-id').html();
+  console.log(edit_artwork_id);
+
+  $.ajax({
+    url: '/api/artworks/'+ del_artwork_id,
+    method: 'delete',
+    processData: false,  // tell jQuery not to process the data
+    contentType: false,  // tell jQuery not to set contentType
+    success: function (resp) {
+      console.log(resp)
+      console.log("modal close")
+      ajaxGallery.init1();
+      $('#update-art-Modal').modal('hide');
+    }
+  })
+});
+
 
 
 

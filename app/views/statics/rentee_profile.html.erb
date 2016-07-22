@@ -1,5 +1,6 @@
+<div class= "profile-page-boarder">
 <!-- TEMPORARY PLACEHOLDER -->
-<button id="logout-button">Logout</button>
+<button class="btn btn-default" id="logout-button">Logout</button>
 <%= current_rentee.email %>
 <br><br>
 
@@ -7,16 +8,16 @@
 <div class="row">
   <!-- PICTURE  -->
   <div class= "col-xs-3">
-    <img src="https://d1iu1mag0u723c.cloudfront.net/assets/no-avatar-25359d55aa3c93ab3466622fd2ce712d.jpg" width="200" height="200" class="circle">
+    <img class= "profile-image" src=<%= current_rentee.avatar %> width="200" height="200" class="circle">
   </div>
   <!-- PROFILE INFORMATION -->
   <div class= "col-xs-6">
-    <h1>Rentee Name </h1>
-    <h3> Rentee Location </h3>
+    <h1><%= current_rentee.name %></h1>
+    <h3> <%= current_rentee.location %></h3>
   </div>
   <!-- CONTACT INFORMATION -->
   <div class= "col-xs-3 pull-right">
-    <h3> Rentee Contact </h3>
+    <h3><%= current_rentee.contact %></h3>
   </div>
 </div>
 <hr>
@@ -46,11 +47,13 @@
   <!-- PAGE CONTENT -->
   <div class= "col-xs-9">
     <%= render 'statics/rentee/rentee_gallery' %>
-    <%= render 'statics/rentee/rentee_reservation' %>
     <%= render 'statics/rentee/rentee_settings' %>
+    <%= render 'statics/rentee/rentee_gallery_modal' %>
+    <%= render 'statics/rentee/rentee_reservation' %>
 
   </div>
 
+</div>
 </div>
 
 

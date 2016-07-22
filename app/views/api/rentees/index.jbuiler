@@ -1,0 +1,5 @@
+json.array! @rentees do |rentee|
+  json.partial! 'rentee_template', rentee: rentee
+
+
+end
