@@ -20,14 +20,16 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="artist-hide" href="/artist_profile">Artist</a></li>
-        <li><a class="rentee-hide" href="/rentee_profile">Rentee</a></li>
-        <li><a href="/inbox">Inbox</a></li>
+        <li><a class="artist-show" style="display: none;" href="/artist_profile">Artist</a></li>
+        <li><a class="rentee-show" style="display: none;" href="/rentee_profile">Rentee</a></li>
+        <li><a href="/">Inbox</a></li>
         <li>
+          <button id= "logout-button" type="button" class="btn btn-info btn-lg" style="display: none;" >logout</button>
+        </li>
         <li>
           <!-- logintype -->
           <!-- Trigger the modal with a button -->
-          <button id="logintype_button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#logintypeModal">login</button>
+          <button id="logintype_button" type="button" class="btn btn-info btn-lg" style="display: none;" data-toggle="modal" data-target="#logintypeModal">login</button>
           <div id="logintypeModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
             <!-- Modal content-->

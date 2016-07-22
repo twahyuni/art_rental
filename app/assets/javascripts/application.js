@@ -51,9 +51,11 @@ $(document).ready(function(){
 
     console.log("Artist is loggedin")
     setupAjax();
-    $('.rentee-hide').hide();
+    $('.artist-show').show();
+    $('#logout-button').show();
   }).fail(function(resp){
     console.log("Artist is not loggedin")
+    $('#logintype_button').show();
     document.cookie = cookies;
 
 
@@ -64,10 +66,14 @@ $(document).ready(function(){
       document.cookie = cookies;
       setupAjax();
       console.log("c", cookies);
-      $('.artist-hide').hide();
+      $('.rentee-show').show();
+      $('#logintype_button').hide();
+      $('#logout-button').show();
+
 
     }).fail(function(resp){
       console.log("Rentee is not loggedin")
+       $('#logintype_button').show();
       setupAjax();
     })
   });
