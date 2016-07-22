@@ -87,3 +87,7 @@ body {
 .modal-body {
   padding: 20px;
 }
+
+.container-fluid {
+  background-color: white;
+}
