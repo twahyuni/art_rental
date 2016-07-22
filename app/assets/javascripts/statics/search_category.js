@@ -30,13 +30,11 @@ var search_engine = {
         $('#search-category-artwork').html('');
 
         artworks.forEach(function (artwork) {
-          html = '<div class= "search-artwork artwork-box" >' +
-                '<img src="'+ artwork.artwork_image +'" width="200" height="200">' +
-                '<h4>'+ artwork.title + '</h4>' +
-                '<h5>' + artwork.decription + '</h5>'+
-                '<a href="/public/artist_profile/' + artwork.owner_id + '">'+ artwork.owner + '</a>' +
-                '<h6 class= "artwork_id">'+ artwork.id +'</h6>'+
-                '<button class="rent_artwork artist-hide btn btn-default">' + "rent" + '</button>'
+          html = '<div class= "search-artwork artwork-box" >' + '<div>'+
+                '<img src="'+ artwork.artwork_image +'" width="280" height="280">' + '</div>'+
+                '<a class="pull-right" href="/public/artist_profile/' + artwork.owner_id + '">'+ "by- "+ artwork.owner + '</a>' +
+                '<h6 class= "hide artwork_id">'+ artwork.id +'</h6>'+
+                '<button class="rent_artwork artist-hide btn btn-info">' + "rent" + '</button>'
               '</div>';
           $('#search-category-artwork').append(html);
         });
