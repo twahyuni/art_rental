@@ -12,45 +12,39 @@ $(document).ready(function() {
   //   return false;
   // }
 
-  if (!$('body').hasClass('rentee_profile')) { return false; }
-
   var ajaxReservation = {
+    createReservation: function(params, cb) {
+      $.ajax({
+        url: '/api/reservations',
+        method: 'post',
+        data: params,
+        success: function (reservation) {
+          ajaxReservation.bindShowReservations();
+          cb(reservation, "edit");
+          console.log(reservation)
+        }
+      })
+    },
     bindCreateReservation: function() {
       var that = this;
 
       $('.reservation-date-button').on("click", function (e) {
-
         e.preventDefault();
 
-        // GET THE DATE OF START AND END AND PARSE THEM
-        var $sr = $('#datetimepicker-open-reservation').data("DateTimePicker").date();
-        var $er = $('#datetimepicker-close-reservation').data("DateTimePicker").date();
-
-        var start_reservation_date = moment($sr).format("YYYY-MM-DD");
-        var end_reservation_date = moment($er).format("YYYY-MM-DD");
-        var artwork_id = $('.reservation-date-button').parents('div').find('.row').attr('data-id');
-        var artist_id = $('.reservation-date-button').parents('div').find('.row').attr('data-owner-id');
-
-        var data = {
-          start_reservation_date: start_reservation_date,
-          end_reservation_date: end_reservation_date,
-          artwork_id: artwork_id,
-          artist_id: artist_id
+        var params = {
+          start_reservation_date: $('#datetimepicker-open-reservation input').val(),
+          end_reservation_date: $('#datetimepicker-close-reservation input').val(),
+          artwork_id: $('.reservation-date-button').parents('div').find('.row').attr('data-id'),
+          artist_id: $('.reservation-date-button').parents('div').find('.row').attr('data-owner-id')
         }
 
-        // PUSH INTO AJAX OF RESERVATION
-        $.ajax({
-          url: '/api/reservations',
-          method: 'post',
-          data: data,
-          success: function (resp) {
-            console.log(resp)
-          }
-        })
+        that.createReservation(params, that.setReservation);
 
       });
     },
     bindShowReservations: function() {
+      if (!$('body').hasClass('rentee_profile')) { return false; }
+
       var that = this;
 
       // GET THE RESERVATION RELATED TO THIS RENTEE
@@ -61,6 +55,15 @@ $(document).ready(function() {
           $('#rented-artworks-index').html('');
 
           reservations.forEach(function (reservation) {
+
+            var today = moment(new Date()).format('YYYY-MM-DD');
+
+            if (reservation.start_reservation_date <= today && today <= reservation.end_reservation_date) {
+              console.log('not available');
+            } else {
+              console.log('available')
+            }
+
             html = '' +
             '<div class="rentee-reservation-card">' +
               '<div class="row">' +

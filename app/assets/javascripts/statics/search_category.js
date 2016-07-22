@@ -54,6 +54,7 @@ var search_engine = {
                     '<h6>' + artwork.owner + '</h6>' +
                   '</div>' +
                 '</div>'
+
         $('.reservation-artworks-details-container').html(html);
       }
     });
