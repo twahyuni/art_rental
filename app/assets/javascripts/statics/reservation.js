@@ -70,7 +70,7 @@ $(document).ready(function() {
                 reservation.start_reservation_date + '-' + reservation.end_reservation_date +
                 '<div class="col-xs-5">' +
                   '<img src="'+ reservation.artwork_url + '">' +
-                  '<a href=""> by - ' + reservation.artwork_artist_name + '</a>' +
+                  '<a href="/public/artist_profile/' + reservation.artist_id + '"> by - ' + reservation.artwork_artist_name + '</a>' +
                 '</div>' +
                 '<div class="col-xs-7">' +
                   '<h1>' + reservation.artwork_title + '</h1>' +
